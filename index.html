@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#101619" />
+  <title>ROGER: Rise of the Firstborn</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="world" aria-label="3D game world"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">R</span><div><div class="brand-title">FIRSTBORN</div><div class="brand-sub">THE SHATTERED DOMINION</div></div></div>
+      <div class="realm-chip"><span class="realm-dot"></span><span id="realm-name">ASHEN FRONTIER</span><span class="realm-divider">/</span><span id="realm-time">DAY 01</span></div>
+      <button class="icon-btn" id="sound-btn" aria-label="Toggle sound" title="Sound">♫</button>
+    </header>
+
+    <section class="hero-panel">
+      <div class="eyebrow"><span class="live-dot"></span> REINCARNATED · LEVEL <span id="level">01</span></div>
+      <h1>ROGER <span class="name-glow">THE UNBOUND</span></h1>
+      <div class="rank-line"><span class="rank-label">CURRENT RANK</span><strong id="rank">OUTCAST</strong><span class="rank-flare">✦</span></div>
+      <div class="xp-track"><div id="xp-fill"></div></div>
+      <div class="xp-caption"><span id="xp-label">0 / 100 RENOWN</span><span>ASCEND</span></div>
+      <div class="vitals">
+        <div class="vital-row"><span class="vital-icon heart">♥</span><div class="vital-bar"><div id="health-fill" class="health-fill"></div></div><span id="health-text">100</span></div>
+        <div class="vital-row"><span class="vital-icon spark">✦</span><div class="vital-bar"><div id="essence-fill" class="essence-fill"></div></div><span id="essence-text">40</span></div>
+      </div>
+    </section>
+
+    <aside class="quest-card">
+      <div class="quest-kicker"><span>ACTIVE DIRECTIVE</span><span class="quest-counter" id="quest-step">01 / 03</span></div>
+      <h2 id="quest-title">Prove you belong</h2>
+      <p id="quest-description">Gather 3 ember shards from the frontier.</p>
+      <div class="quest-progress"><div id="quest-fill"></div></div>
+      <div class="quest-foot"><span id="quest-progress-label">0 / 3</span><span class="reward">REWARD <b>+40 RENOWN</b></span></div>
+    </aside>
+
+    <div class="world-labels" id="world-labels"></div>
+    <div class="toast" id="toast"></div>
+    <div class="interaction-prompt" id="interaction-prompt"><span class="prompt-key">E</span><span id="prompt-text">INTERACT</span></div>
+
+    <div class="bottom-hud">
+      <div class="objective-hint"><span class="hint-sigil">✦</span><div><strong id="hint-title">A NEW WORLD</strong><span id="hint-copy">Move through the Ashen Frontier</span></div></div>
+      <div class="controls-legend"><kbd>WASD</kbd><span>MOVE</span><kbd>SPACE</kbd><span>STRIKE</span><kbd>E</kbd><span>INTERACT</span></div>
+      <div class="mobile-controls" aria-label="Touch controls">
+        <div class="stick-zone" id="stick-zone"><div class="stick-base"><div class="stick-knob" id="stick-knob"></div></div></div>
+        <div class="action-buttons"><button class="touch-action interact-action" id="interact-btn"><span>✧</span><small>USE</small></button><button class="touch-action attack-action" id="attack-btn"><span>⚔</span><small>STRIKE</small></button></div>
+      </div>
+    </div>
+
+    <div class="rank-up" id="rank-up"><div class="rank-up-card"><div class="rank-up-symbol">✦</div><div class="rank-up-kicker">A NEW POWER AWAKENS</div><h2 id="rank-up-title">RANK ASCENDED</h2><p id="rank-up-copy">The world begins to notice you.</p><button id="rank-up-close">CONTINUE <span>→</span></button></div></div>
+    <div class="intro-overlay" id="intro-overlay"><div class="intro-content"><div class="intro-overline">A WORLD THAT NEVER WANTED YOU</div><div class="intro-title">THE <i>FIRSTBORN</i></div><div class="intro-rule"></div><p>You died once. The second life belongs to no one.</p><button id="begin-btn">ENTER THE FRONTIER <span>→</span></button><div class="intro-note">A TOUCH-FRIENDLY ACTION RPG · MOVE, GATHER, SURVIVE</div></div></div>
+    <div class="end-overlay" id="end-overlay"><div class="end-card"><div class="end-kicker">THE DOMINION HAS A NEW SOVEREIGN</div><h2>THE FIRSTBORN<br><i>RISES</i></h2><p>Human. Angel. Devil. Monster.<br>All kneel before Roger, the Unbound.</p><div class="final-stats" id="final-stats"></div><button id="restart-btn">RULE AGAIN <span>↻</span></button></div></div>
+    <div class="damage-flash" id="damage-flash"></div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
